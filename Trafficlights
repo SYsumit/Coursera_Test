@@ -9,52 +9,6 @@ if (timer != 0) {
    setInterval(TrafficLight,time);
 }
 
-var count = 1;
-function TrafficLight(){
- 
- count = count+1;
- var colours = ["white","red","yellow","green"];
- var div = document.querySelectorAll("#one");
- var div1 = document.querySelectorAll("#two");
-  var div2 = document.querySelectorAll("#three");
- console.log(count);
- 
- if (count == colours.length){
- count = 0;
- 
-    div[0].style.background = colours[1];
-	div[1].style.background = colours[1];
-	div[2].style.background = colours[1];
-	div1[0].style.background = colours[0];
-	div1[1].style.background = colours[0];
-	div1[2].style.background = colours[0];
-	div2[0].style.background = colours[0];
-	div2[1].style.background = colours[0];
-	div2[2].style.background = colours[0];
- }
-  else if (count == 1){
-	
-    div1[0].style.background = colours[2];
-	div1[1].style.background = colours[2];
-	div1[2].style.background = colours[2];
-	div2[0].style.background = colours[0];
-	div2[1].style.background = colours[0];
-	div2[2].style.background = colours[0];
-	div[0].style.background = colours[0];
-	div[1].style.background = colours[0];
-	div[2].style.background = colours[0];
- }
- else  {
-
-    div2[0].style.background = colours[3];
-	div2[1].style.background = colours[3];
-	div2[2].style.background = colours[3];
-	div1[0].style.background = colours[0];
-	div1[1].style.background = colours[0];
-	div1[2].style.background = colours[0];
-	div[0].style.background = colours[0];
-	div[1].style.background = colours[0];
-	div[2].style.background = colours[0];
  }
 
 }
