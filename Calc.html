@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+zoom : 110%;
+moz-zoom : 90%
+}
+
+form {
+padding : 2px;
+border-radius : 5px;
+}
+
+input[type=button]{
+padding : 20px;
+border-radius : 5px ;
+margin-top: 5px;
+background-color : white;
+font-size:large;
+
+}
+input[type=button]:hover{
+box-shadow: 0 0 8px rgba(184, 243, 197, 1);
+cursor:pointer;
+}
+input[type=text]{
+background-color : white;
+opacity : 0.7;
+border-radius : 5px;
+height:50px;
+font-size:large;
+}
+.box1 {
+	margin-left : 5px;
+	padding : 5px;
+	background-color : black;
+	border-radius : 10px;
+	width : 450px;
+	height : 450px ;
+}
+
+</style>
+</head>
+<body style="background-color:lightgreen;text-align:center"><center>
+<h1>Online Calculator</h1><br><br>
+<div class="box1">
+<form name="Calc">
+<input type="text" readonly name="Input" size="29" placeholder="0" ></input>
+<br><br>
+<div class="box2">
+<INPUT TYPE="button" VALUE="  1  " OnClick="Calc.Input.value += '1'">
+<INPUT TYPE="button" VALUE="  2  " OnCLick="Calc.Input.value += '2'">
+<INPUT TYPE="button" VALUE="  3  " OnClick="Calc.Input.value += '3'">
+<INPUT TYPE="button" VALUE="  +  " OnClick="Calc.Input.value += ' + '">
+<br><br>
+<INPUT TYPE="button" VALUE="  4  " OnClick="Calc.Input.value += '4'">
+<INPUT TYPE="button" VALUE="  5  " OnCLick="Calc.Input.value += '5'">
+<INPUT TYPE="button" VALUE="  6  " OnClick="Calc.Input.value += '6'">
+<INPUT TYPE="button" VALUE="  -  " OnClick="Calc.Input.value += ' - '">
+<br><br>
+<INPUT TYPE="button" VALUE="  7  " OnClick="Calc.Input.value += '7'">
+<INPUT TYPE="button" VALUE="  8  " OnCLick="Calc.Input.value += '8'">
+<INPUT TYPE="button" VALUE="  9  " OnClick="Calc.Input.value += '9'">
+<INPUT TYPE="button" VALUE="  *  " OnClick="Calc.Input.value += ' * '">
+<br><br>
+<INPUT TYPE="button" VALUE="  C  " OnClick="Calc.Input.value = ''">
+<INPUT TYPE="button" VALUE="  0  " OnClick="Calc.Input.value += '0'">
+<INPUT TYPE="button" Style="background-color:orange" VALUE="  =  " OnClick="Calc.Input.value = eval(Calc.Input.value)">
+<INPUT TYPE="button" VALUE="  /  " OnClick="Calc.Input.value += ' / '">
+</div>
+</form>
+</div>
+</center>
+
+</body>
+</html>
