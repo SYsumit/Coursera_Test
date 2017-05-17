@@ -1,0 +1,159 @@
+Requirement  Gathering-
+
+Case Study of MyMovie App : Phase 1
+-----------------------------------------------------------
+
+Highlights:
+1-Date, toLocaleTimeString()
+2-DOM API object properties and methods for HTML and CSS manipulation
+3-Event Handlers: onclick, onchange, onload,onkeyup
+4-RegExp pattern check for email field, password field
+5-RegExp method test()
+6-setInterval()
+
+Demo Steps:
+For the “MyMovie” application we will implement:
+
+Requirement 1. On click of arrow button, display slide show of cinema hall's
+ advertisements.
+
+Requirement 2. Display signup link in header and current time in the footer
+
+Requirement 3. Signup form with the field - username, email, password along with
+ validations for each field.
+
+Requirement 5. movie-details page should show list of movies currently running in the hall.
+The select box on top right for city selection will have following cities - Bangalore, Amritsar, Chennai . 
+Movie details for the city selected will be shown in place of fourth movie in the list.
+
+Let us start developing application pages now:
+
+-->Download images for index  page.
+
+-->Download images for moviedetails page.
+
+-->Download other images.
+
+-->Download CSS style files
+
+-->Download fonts.
+
+
+1. Develop 3 html files and 1 javascript file with following names:
+    index.html
+    Movie-Details.html
+    mymovie_script.js
+
+            
+
+2. All the JavaScript code required for this application will be placed inside mymovie_script.js file.
+ Each html page developed for this app will do the following:
+
+1. The index.html page will display slideshow of movies currently running in the cinema hall. In the header,
+ there will be a link 'SignUp'. 
+Clicking on it will open the signup form(developed using JavaScript code) on the same page.
+2. The Sign up form will consist of the fields : Username, Email and Password with register button.
+
+3.The SignUp form should have following validations:
+
+Username should be minimum 5 characters and maximum 10 characters
+Email should contain @ and . followed by string 
+Password should have alphanumeric characters and atleast 1 special symbol
+All the fields are mandatory:
+
+4.Only if all validations succeed, the click on register button will take user to the homepage,
+else should be shown an error message.
+
+5. Movie-Details page should show list of movies currently running in the hall.
+The select box on top right for city selection will have following cities - Bangalore, Amritsar,
+ Chennai. Movie details for the city selected will be shown in place of fourth movie in the list
+
+-----------------------------------------------------------
+Case Study of MyMovie App : Phase 2
+-----------------------------------------------------------------
+
+Highlights:
+Window - local and session storage, open method
+Use of JavaScript Arrays
+Location property - href
+String method - substr
+Demo Steps:
+For the “MyMovie” application we will implement:
+
+Requirement 4. When user signs up with valid details:
+
+Username should be displayed and the logout link should be displayed in header .
+
+The details should be stored in localStorage and user should navigate to movie-details page.
+
+Requirement 5. movie-details page should show select box for city selection from Bangalore, Amritsar,
+ Chennai
+
+Requirement 6. When book button is clicked, user navigates to booking form - emailid, date, time,
+ number of seats, Book button. On entering details and clicking on the button, booking summary is 
+shown with total amount to be paid for the booking.
+
+1. In addition to 3 html files developed previously, add 1 new html file:
+    BookFinal.html
+
+2. We will continue using mymovie_script.js for JavaScript code.
+Download images for BookFinal page
+
+For signup authentication, in case of valid user save user details - name and password in localStorage.
+
+3. Navigate user to Movie-Details.html page. In the header, 
+    1. welcome the user with his name by fetching name from the localStorage
+    2. While displaying the name, change first character to capital
+
+4. When user clicks on region from select box, movie image for that region will be shown in 
+   4th block of the page. On click of Book button, user will navigate to BookFinal.html using window.open
+
+5. Window will open with the new url : BookFinal.html+ 'Name of the image clicked'
+
+For BookFinal.html,
+    1. Write internal script to do following:
+        initialize an array of movies with details - name, rating and description
+        Based on the image that has travelled from homepage.html in the URL - fetch the data of that
+        movie against the index from the array
+    2. Display movie details in a box - name, image, rating and description
+    3. Display booking form built using HTML5 built-in validations - User email, phone number,
+       number of seats, date of show, time of show
+    4. on click of book button - the total amount should be displayed
+
+PS: There is no change in index.html
+
+
+--------------------------------------------------------------------
+Case Study of MyMovie App : Phase 3
+-----------------------------------------------------------------------
+
+Highlights:
+DOM API Event object
+location object - assign method
+DOM API manipulation objects and methods
+DOM API Node Relationship objects and methods
+Demo Steps:
+For the “MyMovie” application we will implement:
+
+Requirement 7. Create custom alert box for the application.
+
+Requirement 8. When user clicks on logout, the storage should be cleared and user should
+ navigate to index page.
+
+
+1. We will use all 4 html files developed previously
+
+2. We will continue using mymovie_script.js for JavaScript code.
+
+and add following implementations:
+
+1. Create custom alert box for every alert message generated in case of mandatory check
+ failure on SignUp form.
+
+2. Create logout link in the header for homepage.html and BookFinal.html
+
+When user clicks on this link, 
+    the details saved in localStorage should be removed.
+    the user should be navigated to index.html
+
+PS: All the html files remain unchanged.
