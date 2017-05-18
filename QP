@@ -1,0 +1,56 @@
+Question-------------------------
+1. Write and test the commands that would do the following:
+   Create a directory name UNIX in the home directory (E.g.: /home/username)
+  Create a sub directory Assess under UNIX (do a & b steps using single command)
+  Change to Assess directory
+  Create 5 empty files file1, file2, file3, file4 and file5
+  Create a file called Myfile and store your name, age, gender and address in it.
+  Display the content of the file Myfile
+  Make a copy of the file Myfile into another file newMyfile
+  Create a file Content and type any 2 sentences in it.
+  Combine the contents of the file Myfile and Content into another file MyContent
+  Delete the file Myfile
+  Create one more link called lnContent for the file Content
+  Rename the file newMyfile to oldMyfile
+  Create a directory mydir in the current directory
+  Move the files oldMyfile and Content to mydir
+  Create another directory newdir within current directory
+  Copy the content of mydir to the newdir
+  Delete the directories mydir and newdir at one shot
+  Find out who is currently logged into the system.
+   Find out all the options available with the finger command. Try to understand all of them?
+   Change to home directory Find out the names of all files present in this directory.
+2. Explain differences between the following set of commands
+a) mv foo fun
+b) cp foo fun; rm foo
+3. Explain how the following works.
+   $ cp file1 file2 file3
+4. Write a grep command to find the users who are using terminals tech20, tech30, tech35.
+5. Use mv to rename a set of files m* to t*. Does it work? Explain the results.
+6. List the lines 5-10 of a file?
+7. Experiment with permissions for the mydir directory and fill in the blanks in the following questions:
+a)In order to be able to see the directory listing I need the _______ permission(s)
+b)I need the _______ permission to create and delete files in the directory
+8. Links:
+a) Create a link to a file. Check the link count and i-node number of both the files.
+Why is it that both the files have same i-node number? Use rm to remove one of
+the files. What happens to the link count?
+b) Create hard or symbolic links to files
+a. Which type of link is not permitted to refer to directories?
+9. Have a look at the permissions of the files in the mydir directory. Create hardlink and soflink for 2 diff files in the directory
+Notice how permissions for a symbolic link differ from regular files (hard links).
+Experiment with file permissions and fill in the blanks in the following questions:
+a)I need the _______ permission(s) in order to view file contents
+b)I need the _______ permission(s) in order to copy a file
+c)I need the _______ permission(s) in order to delete a file
+d)When I changed a permission for a file, permissions shown for another hard link pointing to the same file ____________________________
+10. Create alias for the following commands
+a) date
+b) cal
+c) clear
+d) man
+11. Move files
+  What does the -f option for this command do?
+12. Concatenate and display files
+  How can this command be used to concatenate the files four.txt and five.txt
+and write the result to the file named six.txt?
