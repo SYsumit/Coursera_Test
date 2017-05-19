@@ -1,0 +1,100 @@
+<!-- Movie-Details.html -->
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/movieDetails.css">
+        <link rel="stylesheet" href="../css/dropdown1.css">
+        <title>Home </title>
+        <script src="../js/mymovie_script.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body onload="dateDisplay();displayName()">
+        <div id="render">
+            <p id="nameOfUser" style="position:absolute;top:17px;left:981px;color:#cddc39"></p>
+             <p id="title" class="logo">My&nbsp;<img onclick="redirectToHome()" src="../images/movie12_1.png" />&nbsp;.com</p>
+            <a href="#" id="myBtn" style="position:absolute;top:30px;left:1113px;" onclick="signout(event)">Logout</a>
+            <img id="location" height="20px" src="../images/location1.png" />
+            <div class="select-style">
+                <select id="city" onchange="displayMovies()">
+                    <option value="select">Select City</option>
+                    <option value="Bangalore" selected>Bangalore</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+            </div>
+        </div>
+        <p id="heading">Now Showing</p>
+        
+        <div id="movie1">
+            <div>
+                <img id="img1" src="../images/moviedetails_images/image1.jpg" />
+            </div>
+            <div id="div1"><br>
+                <span id="movieName1" class="span1" style="font-size:16px">BANG BANG</span><br><br>
+                <span id="language1" class="span1" style="font-size:11px">Hindi</span><br><br>
+                <span id="action" class="span2">Action</span>
+                <span id="drama" class="span2">Drama</span>
+                <span id="family" class="span2">Family</span>
+            </div>
+            <div>
+                <input id="bookbtn" type="submit" value="Book Now" onclick="playme('image1.jpg');"/>
+            </div>
+        </div>
+        <div id="movie2">
+            <div>
+                <img id="img2" src="../images/moviedetails_images/image2.jpg" />
+            </div>
+            <div id="div1"><br>
+                <span id="movieName2" class="span1" style="font-size:16px">BILLI MOUSI</span><br><br>
+                <span id="language2" class="span1" style="font-size:11px">Hindi</span><br><br>
+                <span class="span2">Action</span>
+                <span class="span2">Drama</span>
+                <span class="span2">Family</span>
+            </div>
+            <div>
+                <input id="bookbtn" type="submit" value="Book Now" onclick="playme('image2.jpg');"/>
+            </div>
+        </div>
+        <div id="movie3">
+            <div>
+                <img id="img3" src="../images/moviedetails_images/image3.jpg" />
+            </div>
+            <div id="div1"><br>
+                <span id="movieName3" class="span1" style="font-size:16px">THE WEDDING</span><br><br>
+                <span id="language3" class="span1" style="font-size:11px">English</span><br><br>
+                <span class="span2">Action</span>
+                <span class="span2">Drama</span>
+                <span class="span2">Family</span>
+            </div>
+            <div>
+                <input id="bookbtn" type="submit" value="Book Now" onclick="playme('image3.jpg');"/>
+            </div>
+        </div>
+        <div id="movie4">
+            <div>
+                <img id="img4" src="../images/moviedetails_images/kannad.jpg" />
+            </div>
+            <div id="div1"><br>
+                <span id="movieName4" class="span1" style="font-size:16px">RAAJAKUMARA</span><br><br>
+                <span id="language4" class="span1" style="font-size:11px">Kannada</span><br><br>
+                <span class="span2">Action</span>
+                <span class="span2">Drama</span>
+                <span class="span2">Family</span>
+            </div>
+            <div>
+                <input id="bookbtn" type="submit" value="Book Now" onclick="var imgSrc = document.getElementById('img4').src;playme(imgSrc.substr(imgSrc.lastIndexOf('/')+1,imgSrc.length))"/>
+            </div>
+        </div>
+    <div id="footer">
+
+    <div>
+        <p>
+            <span style='position:absolute;left:550px;top:3px'>Copyright &copy 2016-2017 Infosys Limited</span>
+            <p id="showdate" style="position:absolute;top:-9px;left:1255px;">
+        </p>
+    </div>      
+</div>  
+</body>
+
+</html>
