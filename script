@@ -1,0 +1,225 @@
+<!-- updated myScript.js -->
+//1. To display time in the footer on page load
+function dateDisplay()
+{
+    setInterval(myfunc,1000); 
+    function myfunc(){
+        var d = new Date();
+        document.getElementById("showdate").style.color="white";
+        document.getElementById("showdate").innerHTML = d.toLocaleTimeString();
+    }
+ } 
+ 
+//2. Change movie image on click of image
+ function incrementSlide(){
+    currentImage= document.getElementById("slide");
+    
+    if(currentImage.src.match("image0")){
+    currentImage.src="../images/index_images/image1.jpg";
+    }
+    
+    else if(currentImage.src.match("image1")){
+    currentImage.src="../images/index_images/image2.jpg";
+    }
+    
+    else if(currentImage.src.match("image2")){
+    currentImage.src="../images/index_images/image0.jpg";
+    }
+    
+} 
+
+
+function decrementSlide(){
+   currentImage= document.getElementById("slide");
+    
+    if(currentImage.src.match("image0")){
+    currentImage.src="../images/index_images/image2.jpg";
+    }
+    
+    else if(currentImage.src.match("image1")){
+    currentImage.src="../images/index_images/image0.jpg";
+    }
+    
+    else if(currentImage.src.match("image2")){
+    currentImage.src="../images/index_images/image1.jpg";
+    }
+    
+}
+
+ 
+//3. Code to validate user entered details in registration form
+            var userFlag = false;
+            var emailFlag = false;
+            var passwordFlag = false;
+            
+            function validateName(){
+                
+                var length = document.getElementById("username").value.length;
+                if (length < 5 || length > 10) {
+                    document.getElementById('un').innerHTML = 'Username should have minimum 5 characters and maximum 10';
+                    document.getElementById('un').style.display="block";
+                } else {
+                     userFlag=true;
+                     document.getElementById('un').innerHTML = '';
+                     document.getElementById('un').style.display="none";
+                }
+            }
+            
+            function validateEmail(){
+                var emailPattern = new RegExp("(?=.*@)(?=.+.com)");
+                    if (!(emailPattern.test(document.getElementById("email").value))) {
+                        document.getElementById('em').innerHTML = 'Email id should contain @ and .com in it';
+                        document.getElementById('em').style.display="block";
+                    } else {
+                            emailFlag=true;
+                            document.getElementById('em').innerHTML = '';
+                            document.getElementById('em').style.display="none";
+                    }
+            }
+            
+            function validatePassword(){
+                 var passwordPattern = new RegExp("(?=.*\[0-9])(?=.*[a-zA-Z])(?=.*[@#$%!^&*+_])");
+                    if (!(passwordPattern.test(document.getElementById("password").value))){
+                        document.getElementById('pw').innerHTML = 'Weak password!!';
+                        document.getElementById('pw').style.display="block";
+                    }else{
+                        passwordFlag=true;
+                        document.getElementById('pw').innerHTML = '';
+                        document.getElementById('pw').style.display="none";
+                    }
+            }
+
+            function validation()
+            {
+                if(emailFlag && passwordFlag){
+                    localStorage.setItem('mymovie_username',document.getElementById("username").value);
+                    localStorage.setItem('mymovie_password',document.getElementById("password").value);
+                    location.assign('Movie-Details.html');
+                    document.getElementById('final').innerHTML='Thanks for registration. Your details are saved!';
+                    document.getElementById('final').style.display="block";
+                    document.getElementById('un').style.display="none";
+                    document.getElementById('em').style.display="none";
+                    document.getElementById('pw').style.display="none";
+                }else{
+                    document.getElementById('un').style.display="none";
+                    document.getElementById('em').style.display="none";
+                    document.getElementById('pw').style.display="none";
+                    alert("Please enter all the fields appropriately");
+                }
+            }
+            
+
+
+ //4. On selection of movie category - corressponding movie images are shown
+ function displayMovies() {
+    
+    var city = document.getElementById('city').value;
+    if (city == 'Bangalore') {
+
+        document.getElementById('img4').src="../images/moviedetails_images/kannad.jpg";
+        document.getElementById('movieName4').innerHTML="RAAJAKUMARA";
+        document.getElementById('language4').innerHTML="Kannada"
+
+    } else if (city == 'Amritsar') {
+
+        document.getElementById('img4').src="../images/moviedetails_images/punjabi.png";
+        document.getElementById('movieName4').innerHTML="JINDUA";
+        document.getElementById('language4').innerHTML="Punjabi"
+    } 
+    else if (city == 'Chennai') {
+        document.getElementById('img4').src="../images/moviedetails_images/tamil.jpg";
+        
+        document.getElementById('movieName4').innerHTML="BOGAN";
+        
+        document.getElementById('language4').innerHTML="Tamil";
+        
+    } 
+    else if (city== 'select')
+    {
+        //do nothing
+    }
+    else {
+        alert('oops something went wrong! try again');
+    }
+}
+//5. Logout code starts here
+ function signout(event){
+                        
+                            event.preventDefault();
+                            localStorage.removeItem('mymovie_username');
+                            localStorage.removeItem('mymovie_password');
+                            //alert('You have been logged out successfully!');
+                            location.assign('index.html');
+                            
+                        };
+
+
+//6. Redirecting user to movie-details page in case change in movie selection is required
+ function redirectToHome()
+ {
+    location.assign("Movie-Details.html");
+ }
+ 
+
+//6. A function to get movie details for booking the selected movie
+function playme(a) {
+    var str = "../html/BookFinal.html#" + a;
+    window.open(str);
+}
+
+ //7. code to welcome user with his name starts here
+function displayName()
+{    
+        var user = localStorage.mymovie_username;
+        var upper = user.charAt(0).toUpperCase();
+        var newUser = upper+user.substr(1,user.length);
+        document.getElementById("nameOfUser").innerHTML ="Welcome "+newUser;
+} 
+
+//8. code to create custom alert starts here
+var ALERT_TITLE = "MyMovie.com"
+var ALERT_BUTTON_TEXT = "Ok";
+
+if(document.getElementById) {
+    window.alert = function(txt) {
+        createCustomAlert(txt);
+    }
+}
+
+function createCustomAlert(txt) {
+    d = document;
+
+    if(d.getElementById("modalContainer")) return;
+
+    mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
+    mObj.id = "modalContainer";
+    //mObj.style.height = d.documentElement.scrollHeight + "px";
+
+    alertObj = mObj.appendChild(d.createElement("div"));
+    alertObj.id = "alertBox";
+    if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
+    alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
+    alertObj.style.visiblity="visible";
+
+    h1 = alertObj.appendChild(d.createElement("h1"));
+    h1.appendChild(d.createTextNode(ALERT_TITLE));
+
+    msg = alertObj.appendChild(d.createElement("p"));
+    //msg.appendChild(d.createTextNode(txt));
+    msg.innerHTML = txt;
+
+    btn = alertObj.appendChild(d.createElement("a"));
+    btn.id = "closeBtn";
+    btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
+    btn.href = "#";
+    btn.focus();
+    btn.onclick = function() { removeCustomAlert();return false; }
+
+    alertObj.style.display = "block";
+
+}
+
+//9. code to remove custom alert starts here
+function removeCustomAlert() {
+    document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
+}
