@@ -1,0 +1,210 @@
+<!-- BookFinal.html -- >
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title> Book Final</title>
+    <script src="../js/mymovie_script.js"></script>
+       <style>
+      
+        
+</style>
+    <link rel="stylesheet" href="../css/bookFinal.css">
+</head>
+
+<body onload='dateDisplay();displayName();'>
+
+       <div id="render">
+            <p id="nameOfUser" style="position:absolute;top:17px;left:1154px;color:#cddc39"></p>
+             <p id="title" class="logo">My&nbsp;<img onclick="redirectToHome()" src="../images/movie12_1.png" />&nbsp;.com</p>
+            <a href="#" id="myBtn" style="position:absolute;top:30px;left:1286px;" onclick="signout(event)">Logout</a>
+        </div>
+        
+        <br/> <br>
+    <span id="heading">Book Your Movie</span>
+    <div id="side">
+    
+        <img id="img1"/>
+        <span id="details">
+            <p id="description"></p>
+            <p><b>Director :</b> <span id="dr"><span></p>
+            <p><b>Producer:</b> <span id="pr"></span></p>
+            <p><b>Hero:</b> <span id="hr"></span></p>
+            <p><b>Heroine:</b> <span id="hre"></span></p>
+            <p><b>Music:</b> <span id="ms"></span></p>
+        </span>
+        <span id="rating"><img height="30px" width="80px" src="../images/3-5-stars.png"></img></span>
+    </div>
+    <div id="side1" style="display:none">
+    
+        <img id="img2"/>
+        <span id="details1">
+            <p id="description1"></p>
+            <p><b>Director :</b> <span id="dr1"></span></p>
+            <p><b>Producer:</b> <span id="pr1"></span></p>
+            <p><b>Hero:</b> <span id="hr1"></span></p>
+            <p><b>Heroine:</b> <span id="hre1"></span></p>
+            <p><b>Music:</b> <span id="ms1"></span></p>
+        </span>
+        <span id="rating"><img height="30px" width="80px" src="../images/3-5-stars.png"></img></span>
+    </div>
+     <div id="signup">
+        <div id="header">ENTER BOOKING DETAILS </div>
+        <div id="form">
+            <input type="text" id="mobile" required pattern="[7-9][0-9]{9}" placeholder="Mobile Number"/>
+            <span id="mob" style="display:none"></span><br>
+            <input id="seats" type="number" required min="1" max="200" placeholder="Minimum 1 seat" />
+            <span id='st' style="display:none"></span><br>
+            <input type="date" required  id="myDate"> 
+            <span id="dt" style="display:none"></span><br>
+            <input id="stime" class="input" list="time" name="showtime" placeholder="Show Timings" required><br/>
+            <span id="sht" style="display:none"></span><br>
+            <datalist id="time">
+                <option value="11am">
+                <option value="2pm">
+                <option value="6pm">
+                <option value="9pm">    
+            </datalist>
+            <input type="submit" id="subbtn" value="Book" onClick="book(arrBollywood[index].name);"/>
+        </div>
+    </div>
+    <div style="display:none" id="maincontainer">
+        <div id="result">
+            <h2 style="color:#49ba8e;">Booking Summary</h2>
+        </div>
+        <div id="result1">
+        </div>
+    </div>  
+
+        <div id="footer">
+
+    <div>
+        <p>
+            <span style='position:absolute;left:550px;top:3px'>Copyright &copy 2016-2017 Infosys Limited</span>
+            <p id="showdate" style="position:absolute;top:-9px;left:1255px;">
+        </p>
+    </div>      
+</div>
+</body>
+<script>
+//adding code to generate details of the movie being booked
+ 
+var hash=location.hash.substr(1,location.hash.length);
+if(hash=='image1.jpg'){
+index=0;
+}
+else if(hash=='image2.jpg'){
+index=1;
+}
+else if(hash=='image3.jpg'){
+index=2;
+}
+else if(hash=='kannad.jpg'){
+index=3;
+}else if(hash=='punjabi.png'){
+index=4;
+}else if(hash=='tamil.jpg'){
+index=5;
+}
+else{
+    alert('Invalid movie name!');
+}
+  
+     var arrBollywood = [
+        {description:'Action comedy and romantic thriller that gives you goose bumps.',Director:'Sujoy Ghosh',Producer:'Pritish Nandy',Hero:'Sanjay Suri',Heroine:'Juhi Chawla',Music:'Vishal Shekhar'},
+        {description:'Family drama at another level inspired from Ramayanas Keikeyi character',Director:'Dinesh Vijan',Producer:'Dinesh Vijan',Hero:'Sushant Singh Rajput',Heroine:'Kriti Sanon',Music:'Pritam Chakraborty'},
+        {description:'Romantic comedy that leaves you feeling need of love and faith in life.',Director:'Saket Chaudhary',Producer:'Rangita Pritish Nandy',Hero:'Kay Kay Menon',Heroine:'Chitrangada Singh',Music:'Chitrangada Singh'},
+        {description:'Siddharth aka Appu, is the ideal NRI, who falls in love with Nandini, and all seems to be going great. But, a tragedy brings him back to his roots in India and he uncovers a problem related to his family that he resolves to set right.',Director:'Santhosh Ananddram',Producer:'Vijay Kiragandur',Hero:'Puneeth Rajkumar',Heroine:'Priya Anand',Music:'V.Harikrishna'},
+        {description:'Love triangle that leaves you thinking that all we need to survive is true love.',Director:'Maarten van der Duin',Producer:'Gunnar Dedio',Hero:'Kaspar Eichel',Heroine:'Hubert Dreyling',Music:'Laurent Eyquem'},
+        {description:'Regional documentary that talks on woman empowerment.',Director:'Saket Chaudhary',Producer:' Pritish Nandy',Hero:'Rahul Bose',Heroine:'Mallika Sherawat',Music:'Pritam Chakraborty'},
+
+    ] ;
+    var imagesrc="../images/bookfinal_images/"+hash;
+    document.getElementById("img1").src=imagesrc;
+    document.getElementById("img2").src=imagesrc;
+    
+    document.getElementById("description").innerHTML =arrBollywood[index].description;
+    document.getElementById("description1").innerHTML =arrBollywood[index].description;
+    
+    document.getElementById("dr").innerHTML =arrBollywood[index].Director;
+    document.getElementById("dr1").innerHTML =arrBollywood[index].Director;
+    
+    document.getElementById("pr").innerHTML =arrBollywood[index].Producer;
+    document.getElementById("pr1").innerHTML =arrBollywood[index].Producer;
+        
+    document.getElementById("hr").innerHTML =arrBollywood[index].Hero;
+    document.getElementById("hr1").innerHTML =arrBollywood[index].Hero;
+    
+    document.getElementById("hre").innerHTML =arrBollywood[index].Heroine;
+    document.getElementById("hre1").innerHTML =arrBollywood[index].Heroine;
+    
+    document.getElementById("ms").innerHTML =arrBollywood[index].Music;
+    document.getElementById("ms1").innerHTML =arrBollywood[index].Music;
+    
+    function book(){
+    var mobileValue=document.getElementById("mobile").value;
+    var inputDate=document.getElementById("myDate").value;
+    var seats=document.getElementById("seats").value;
+    var showtime=document.getElementById("stime").value;
+    var todaysDate = new Date();
+    
+    // Code to validate the fields - mobile, seats, showtime are entered by the user
+    if(mobileValue==""){
+    document.getElementById("mob").innerHTML="Mobile Number is mandatory";
+    document.getElementById("mob").style.display="block";
+    }
+   else{
+    document.getElementById("mob").innerHTML="";
+    document.getElementById("mob").style.display="none";
+    } 
+    if(  seats==""){
+    document.getElementById("st").innerHTML="Select the number of seats";
+    document.getElementById("st").style.display="block";
+    }
+    else{
+    var discountedCost=seats*300;
+    document.getElementById("st").innerHTML="";
+    document.getElementById("st").style.display="none";
+    }
+    if(  showtime==""){
+    document.getElementById("sht").innerHTML="Select the show timings";
+    document.getElementById("sht").style.display="block";
+    }
+    else{
+    document.getElementById("sht").innerHTML="";
+    document.getElementById("sht").style.display="none";
+    } 
+    // Code to validate the fields - date has a value which is current date or greater than current date
+    if(new Date(inputDate).getTime() < new Date().getTime()){
+    document.getElementById("dt").innerHTML="Date cannot be lesser than today's date";
+    document.getElementById("dt").style.display="block";
+    }
+    else{
+    document.getElementById("dt").innerHTML="";
+    document.getElementById("dt").style.display="none";
+    }
+    // Code to validate the fields - mobile has exactly 9 digits where first number can only be 7,8 or 9
+    var patter="[7-9][0-9]{9}";
+    if(!(mobileValue.match(patter)) && mobileValue!=""){
+    document.getElementById("mob").innerHTML="Enter valid Mobile number!!";
+    document.getElementById("mob").style.display="block";
+    }
+    if(mobileValue!="" && seats!="" && showtime!="" && mobileValue.match(patter)){    
+    if(new Date(inputDate).getTime() > new Date().getTime()){
+    document.getElementById("result").innerHTML+='<br>'+"Total number of seats booked:" +'<span>'+seats+'</span>'+'<br><br>';
+    document.getElementById("result").innerHTML+="Date:"+'<span>'+inputDate+'</span><br><br>'+"Show Timings:"+'<span>'+showtime+'</span>';
+    document.getElementById("result1").innerHTML="<div id='total'>Amount to be paid:" + "<span>Rs." +discountedCost+"</span></div>";
+    document.getElementById("signup").style.display="none";
+    document.getElementById("side").style.display="none";
+    document.getElementById("side1").style.display="block";
+    document.getElementById("maincontainer").style.display="block";
+    document.getElementById("heading").innerHTML="Booking Details";
+    
+    }   
+}
+
+}
+</script>
+</html>
